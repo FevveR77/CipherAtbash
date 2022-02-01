@@ -67,42 +67,37 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextWrite.Text = TextWrite.Text.ToLower();
-            char [] s = TextWrite.Text.ToCharArray();
+            TextResult.Text = CipherTest(TextWrite.Text);
+        }
+
+        public string CipherTest(string InputText)
+        {
+            InputText = InputText.ToLower();
+            char[] s = InputText.ToCharArray();
             string text = "";
+            int eror = 0;
             for (int i = 0; i < (s.Length); i++)
             {
                 if (s[i] >= 'а' && s[i] <= 'я')
                 {
                     s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
                     text += s[i];
-                    TextResult.Text = text;
                 }
-                else
+                if (!(s[i] >= 'а' && s[i] <= 'я'))
                 {
-                    MessageBox.Show("Встретился символ, не соответствующий русскому алфавиту, данный символ будет удален автоматически, для продолжения нажмите ОК");
+                    eror += 1;
                 }
             }
+            if (eror > 0)
+            {
+                MessageBox.Show("Встретились символы не относящиеся к русскому алфавиту, такие как: пробел цифры и т.д., программа автоматически их удалила и вывела все в одну строку, для продолжения нажмите ОК");
+            }
+            return text;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            TextWrite.Text = TextWrite.Text.ToLower();
-            char[] s = TextWrite.Text.ToCharArray();
-            string text = "";
-            for (int i = 0; i < (s.Length); i++)
-            {
-                if (s[i] >= 'а' && s[i] <= 'я')
-                {
-                    s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
-                    text += s[i];
-                    TextResult.Text = text;
-                }
-                else
-                {
-                    MessageBox.Show("Встретился символ, не соответствующий русскому алфавиту, данный символ будет удален автоматически, для продолжения нажмите ОК");
-                }
-            }
+            TextResult.Text = CipherTest(TextWrite.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
