@@ -58,7 +58,7 @@ namespace WinFormsApp1
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(300, 75);
             this.buttonLogin.TabIndex = 5;
-            this.buttonLogin.Text = "Зарегистироваться";
+            this.buttonLogin.Text = "Зарегистрироваться";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 

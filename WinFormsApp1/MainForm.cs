@@ -64,28 +64,45 @@ namespace WinFormsApp1
         //алфавит языка
         private const string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
+
         private void button1_Click(object sender, EventArgs e)
         {
+            TextWrite.Text = TextWrite.Text.ToLower();
             char [] s = TextWrite.Text.ToCharArray();
             string text = "";
             for (int i = 0; i < (s.Length); i++)
             {
-                s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
-                text += s[i];
+                if (s[i] >= 'а' && s[i] <= 'я')
+                {
+                    s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
+                    text += s[i];
+                    TextResult.Text = text;
+                }
+                else
+                {
+                    MessageBox.Show("Встретился символ, не соответствующий русскому алфавиту, данный символ будет удален автоматически, для продолжения нажмите ОК");
+                }
             }
-            TextResult.Text = text;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            TextWrite.Text = TextWrite.Text.ToLower();
             char[] s = TextWrite.Text.ToCharArray();
             string text = "";
             for (int i = 0; i < (s.Length); i++)
             {
-                s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
-                text += s[i];
+                if (s[i] >= 'а' && s[i] <= 'я')
+                {
+                    s[i] = alphabet[alphabet.Length - alphabet.IndexOf(s[i]) - 1];
+                    text += s[i];
+                    TextResult.Text = text;
+                }
+                else
+                {
+                    MessageBox.Show("Встретился символ, не соответствующий русскому алфавиту, данный символ будет удален автоматически, для продолжения нажмите ОК");
+                }
             }
-            TextResult.Text = text;
         }
 
         private void button2_Click(object sender, EventArgs e)
