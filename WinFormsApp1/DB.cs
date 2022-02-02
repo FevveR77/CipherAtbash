@@ -9,7 +9,7 @@ namespace WinFormsApp1
 {
     class DB
     {
-        MySqlConnection connection = new MySqlConnection("Server=185.105.116.207;Port=3306;Username=bobra;Database=1");
+        MySqlConnection connection = new MySqlConnection("Server=localhost;Port=3306;Username=root;Password=root;Database=1");
 
         public void openConnection()
         {
